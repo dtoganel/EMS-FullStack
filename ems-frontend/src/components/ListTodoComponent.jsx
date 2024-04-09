@@ -9,7 +9,7 @@ function ListTodoComponent() {
     const [todos, setTodos] = useState([]);
     const navigator = useNavigate();
     const [employees, setEmployees] = useState([]);
-    const [department, setDepartments] = useState();
+    const [departments, setDepartments] = useState();
 
     useEffect(() => {
         getTodos();
@@ -25,9 +25,15 @@ function ListTodoComponent() {
         })
     }
 
+    const getDepName = (id) => {
+        if(id){
+        const dep = departments?.find(depName => depName.id === id)
+        return dep?.departmentName
+        }
+    }
+
     const getEmpNameById = (id) => {
         const emp = employees?.find(empName => empName.id === id)
-        console.log(emp)
         return emp
     }
 
@@ -60,7 +66,6 @@ function ListTodoComponent() {
     }
 
     function updateTodo(id){
-        console.log(id);
         navigator(`/update-todo/${id}`)
     }
 
@@ -98,12 +103,11 @@ function ListTodoComponent() {
                     {
                         todos.map(todo => {
                             const employeeName = getEmpNameById(todo.employeeId)
-                            console.log(employeeName)
                             return(<tr key={todo.id}>
                                 <td>{todo.title}</td>
                                 <td>{todo.description}</td>
                                 <td>{todo.completed ? "Completed" : "Not Completed"}</td>
-                                <td>{employeeName ? `${employeeName.firstName} ${employeeName.lastName}` : ""}</td>
+                                <td>{employeeName ? `${employeeName.firstName} ${employeeName.lastName} - ${getDepName(employeeName.departmentId)}` : ""}</td>
                                 <td>
                                     <button className='btn btn-info' onClick={() => updateTodo(todo.id)}>Update</button>
                                     <button className='btn btn-danger' onClick={() => removeTodo(todo.id)} style={{marginLeft: "10px"}}>Delete</button>

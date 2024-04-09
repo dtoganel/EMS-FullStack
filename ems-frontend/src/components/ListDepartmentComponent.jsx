@@ -10,7 +10,6 @@ const ListDepartmentComponent = () => {
 
   function listOfDepartments(){
     getAllDepartments().then((response) => {
-      console.log(response.data);
       setDepartments(response.data);
     }).catch(error => {
       console.error(error);
