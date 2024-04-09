@@ -9,7 +9,9 @@ const DepartmentComponent = () => {
     const navigator = useNavigate();
 
     useEffect(() => {
-      retreveData(id);
+      if(id){
+        retreveData(id);
+      }
     }, [id])
 
     function saveOrUpdateDepartment(e){
