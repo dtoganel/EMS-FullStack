@@ -90,7 +90,7 @@ function ListTodoComponent() {
                         <th>Task Title</th>
                         <th>Task Description</th>
                         <th>Task Status</th>
-                        <th>Employee</th>
+                        <th>Employee - Department</th>
                         <th>Actions</th>
                     </tr>
                 </thead>

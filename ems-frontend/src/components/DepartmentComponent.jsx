@@ -15,26 +15,26 @@ const DepartmentComponent = () => {
     }, [id])
 
     function saveOrUpdateDepartment(e){
-    e.preventDefault();
+      e.preventDefault();
 
-    const department = { departmentName, departmentDescription }
+      const department = { departmentName, departmentDescription }
 
-    console.log(department); 
+      console.log(department); 
 
-    if(id){
-      updateDepartment(id, department).then((response) => {
-        console.log(response.data);
-        navigator('/departments');
-      }).catch(error => {
-        console.error(error);
-      })
-    }else {
-      createDepartment(department).then((response) => {
-        console.log(response.data);
-        navigator('/departments')
-      }).catch(error => {
-        console.error(error);
-      })
+      if(id){
+        updateDepartment(id, department).then((response) => {
+          console.log(response.data);
+          navigator('/departments');
+        }).catch(error => {
+          console.error(error);
+        })
+      }else {
+        createDepartment(department).then((response) => {
+          console.log(response.data);
+          navigator('/departments')
+        }).catch(error => {
+          console.error(error);
+        })
     }
   }
 

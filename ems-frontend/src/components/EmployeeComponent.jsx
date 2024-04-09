@@ -30,7 +30,6 @@ const EmployeeComponent = () => {
     const navigator = useNavigate();
 
     useEffect(() => {
-
         if(id){
             getEmployee(id).then((response) => {
                 setFirstName(response.data.firstName);
