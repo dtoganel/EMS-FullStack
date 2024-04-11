@@ -45,6 +45,10 @@ const ListEmployeeComponent = () => {
         navigator(`/edit-employee/${id}`)
    }
 
+   function viewTasks(id){
+        navigator(`/view-tasks/${id}`)
+   }
+
    function removeEmployee(id) {
         console.log(id);
 
@@ -82,6 +86,7 @@ const ListEmployeeComponent = () => {
                             <td>{departmentName}</td>
                             <td>
                                 <button className='btn btn-info' onClick={() => updateEmployee(employee.id)}>Update</button>
+                                <button className='btn btn-success' onClick={() => viewTasks(employee.id)} style={{marginLeft: '10px'}}>View Tasks</button>
                                 <button className='btn btn-danger' onClick={() => removeEmployee(employee.id)}
                                 style={{marginLeft: '10px'}}>Delete</button>
                             </td>

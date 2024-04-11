@@ -105,4 +105,12 @@ public class TodoServiceImpl implements TodoService {
 
         return TodoMapper.mapToTodoDto(savedTodo);
     }
+
+    @Override
+    public List<TodoDto> findTodosByEmployee(Long id) {
+        List<Todo> todos = todoRepository.findTodosByEmployees(id);
+        System.out.println(todos);
+
+        return todos.stream().map(todo -> TodoMapper.mapToTodoDto(todo)).collect(Collectors.toList());
+    }
 }
