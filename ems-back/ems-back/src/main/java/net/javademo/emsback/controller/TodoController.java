@@ -1,7 +1,6 @@
 package net.javademo.emsback.controller;
 
 import net.javademo.emsback.dto.TodoDto;
-import net.javademo.emsback.entity.Todo;
 import net.javademo.emsback.service.TodoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,6 +38,13 @@ public class TodoController {
     @GetMapping
     public ResponseEntity<List<TodoDto>> getAllTodos(){
         List<TodoDto> todos = todoService.getAllTodos();
+
+        return new ResponseEntity<>(todos, HttpStatus.OK);
+    }
+
+    @GetMapping("view-todos/{id}")
+    public ResponseEntity<List<TodoDto>> getTodosByEmployee(@PathVariable("id") Long id){
+        List<TodoDto> todos = todoService.findTodosByEmployee(id);
 
         return new ResponseEntity<>(todos, HttpStatus.OK);
     }
