@@ -8,6 +8,7 @@ import ListEmployeeComponent from './components/ListEmployeeComponent'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import ListTodoComponent from './components/ListTodoComponent'
 import TodoComponent from './components/TodoComponent'
+import EmployeeTasksComponent from './components/EmployeeTasksComponent'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           element = {<ListEmployeeComponent />}></Route>
           <Route path='/employees' element = {<ListEmployeeComponent />}></Route>
 
+          <Route path='/view-tasks/:id' element = {<EmployeeTasksComponent />}></Route>
           <Route path='/update-todo/:id' element = {<TodoComponent />}></Route>
           <Route path='/add-todo' element = {<TodoComponent />} ></Route>
           <Route path='/todos' element = {<ListTodoComponent />}></Route>

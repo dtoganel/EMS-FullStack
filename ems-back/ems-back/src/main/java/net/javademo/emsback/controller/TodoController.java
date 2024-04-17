@@ -39,6 +39,13 @@ public class TodoController {
         return new ResponseEntity<>(todos, HttpStatus.OK);
     }
 
+    @GetMapping("view-todos/{id}")
+    public ResponseEntity<List<TodoDto>> getTodosByEmployee(@PathVariable("id") Long id){
+        List<TodoDto> todos = todoService.findTodosByEmployee(id);
+
+        return new ResponseEntity<>(todos, HttpStatus.OK);
+    }
+
     @PutMapping("{id}")
     public ResponseEntity<TodoDto> updateTodo(@PathVariable("id") Long id,@RequestBody TodoDto todoDto){
         TodoDto updatedTodoDto = todoService.updateTodo(id, todoDto);

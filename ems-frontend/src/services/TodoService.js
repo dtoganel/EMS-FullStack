@@ -15,3 +15,5 @@ export const deleteTodo = (todoId) => axios.delete(BASE_REST_API_URL + "/" + tod
 export const completeTodo = (todoId) => axios.patch(BASE_REST_API_URL + "/" + todoId + "/complete")
 
 export const inCompleteTodo = (todoId) => axios.patch(`${BASE_REST_API_URL}/${todoId}/in-complete`)
+
+export const getTodosByEmployee = (employeeId) => axios.get(BASE_REST_API_URL + "/view-todos/" + employeeId)
