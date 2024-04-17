@@ -111,8 +111,7 @@ function ListTodoComponent() {
                                 <td>
                                     <button className='btn btn-info' onClick={() => updateTodo(todo.id)}>Update</button>
                                     <button className='btn btn-danger' onClick={() => removeTodo(todo.id)} style={{marginLeft: "10px"}}>Delete</button>
-                                    <button className='btn btn-success' onClick={() => markComplete(todo.id)} style={{marginLeft: "10px"}}>Complete</button>
-                                    <button className='btn btn-info' onClick={() => markInComplete(todo.id)} style={{marginLeft: "10px"}}>Not Complete</button>
+                                    {todo.completed ? <button className='btn btn-info' onClick={() => markInComplete(todo.id)} style={{marginLeft: "10px"}}>Not Complete</button> : <button className='btn btn-success' onClick={() => markComplete(todo.id)} style={{marginLeft: "10px"}}>Complete</button> }
                                 </td>
                             </tr>)}
                         )
